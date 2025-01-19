@@ -1,0 +1,39 @@
+John the Ripper formatting automation script
+
+Author: Rich Smith 
+Written: Dec 2024
+Contact: (richrsmith@proton.me)
+
+This script was written as means to automate the formatting process within John the Ripper. John boasts an impressive number of 
+formatting options available to the user, however, an issue with this is if the user is attempting to break a large number of hashes
+with multiple format types within the same (or multiple files) John may not be able to run without specifiying the --format-<format type>
+option. Leaving users to have to go back and manually run the program wasting valuble time and resources. This script allows the user
+to run John the Ripper without having to manually run these various formats against a single or even multiple files. The script has also
+been modified to give the user the ability to input a custom wordlist (or multiple wordlists), use the default John wordlist, or even just 
+use the industry standard rockyou.txt wordlist. However the rockyou.txt must be located within the /usr/share/wordlists directory. In 
+the future I will modify the script so that it will search the system for the rockyou.txt wordlist and if not found download it to give 
+the user more plug and play versatility. Additionally more functionality has been given the script allowing the user to increase the fork
+of John, however at this time I have not added checks to that functionality so it is up to the user to know what the maximum for is their 
+system in capable of. This is another item that I will add to the running TODO list and eventually modify. One key aspect that I did be
+sure to add to this program is the ability to use *nix style globbing. I detest having to type out complex named directories or files, and
+like many I'll often mistype these complex names, simply adding globbing was a way for me to keep some of my own sanity when typing out
+long and complex directory/file names.
+
+        TODO:
+-CORRECT 'Error with format dynamic_n: Unknown ciphertext format name requested', possibly an issue with john itself. I guess
+    I'll work on correcting this when I need to use the dynamic_n format. 
+-ADD try/except block to prevent the user from mistyping something and having to reset the script. 
+    mostly just need to add this because I mistype stuff all the time and hate having to retype extra stuff.
+-ADD greater functionality at the initial file input, as it stands the user can easily mistype and screw up the 
+    input causing them to have to redo the entire thing.
+-RECONFIGURE print statements, as they stand they're easy to read but something about their presentation just throws me off.
+-OPTIMIZE how the script runs against the format types, even now just running 2 hash files with only a few hashes each and
+    a custom wordlist that is very small it takes forever a day to run through all the format types simply because I don't need
+    all the format types every time. Potentially need to call another program first, or develop something in python to ID the
+    hashes in the file and pass that along to main so it selects only the required format types.
+-ADD more wordlists to the wordlist selection tab, this will require me to package these custom wordlists with the script, 
+    for right now its assumed that the user will have the rockyou.txt wordlist already on their system in the /usr/share/wordlists
+    directory.
+-ADD checks to the --fork-<fork option> feature to keep the user from creating errors by using a fork their system is incapable of running
+
+
