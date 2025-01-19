@@ -1,31 +1,5 @@
 #!/usr/bin/env python3
 
-'''    
-        TODO:
--CORRECT 'Error with format dynamic_n: Unknown ciphertext format name requested', possibly an issue with john itself. I guess
-    I'll work on correcting this when I need to use the dynamic_n format. 
--ADD try/except block to prevent the user from mistyping something and having to reset the script. 
-    mostly just need to add this because I mistype crap all the time and hate having to retype extra stuff.
--ADD greater functionality at the initial file input, as it stands the user can easily mistype and screw up the 
-    input causing them to have to redo the entire thing.
--RECONFIGURE print statements, as they stand they're easy to read but something about their presentation just throws me off.
--OPTIMIZE how the script runs against the format types, even now just running 2 hash files with only a few hashes each and
-    a custom wordlist that is very small it takes forever a day to run through all the format types simply because I don't need
-    all the format types every time. Potentially need to call another program first, or develop something in python to ID the
-    hashes in the file and pass that along to main so it selects only the required format types.
--ADD more wordlists to the wordlist selection tab, this will require me to package these custom wordlists with the script, 
-    for right now its assumed that the user will have the rockyou.txt wordlist already on their system in the /usr/share/wordlists
-    directory.
-
-John the Ripper automation script that gives the user the ability to run multiple hash files at once while also
-giving the user the freedom to utilize the default John wordlist, the rockyou wordlist (must be located in the /usr/share/wordlists directory else
-the user should utilize option 3 and input the direct path to the desired wordlist), or another they can provide from input. 
-This program does accept *nix style globbing as well as absolute paths to either hash lists or wordlists.
-
-Rich Smith (richrsmith@proton.me)
-first written Dec 2024
-'''
-
 import os
 import subprocess
 import glob
