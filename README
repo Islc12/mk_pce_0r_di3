@@ -31,5 +31,7 @@ simply adding globbing was a way for me to keep some of my own sanity when typin
     for right now its assumed that the user will have the rockyou.txt wordlist already on their system in the /usr/share/wordlists
     directory.
 -ADD checks to the --fork-<fork option> feature to keep the user from creating errors by using a fork their system is incapable of running
+-ADD dynamic modification to the format list, this will ensure as John the Ripper developers continue to work on the program this script will
+    be capable of keeping the format list up to date without manual modification
 
 RESERVED: instructions
