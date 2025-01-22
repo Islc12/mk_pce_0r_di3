@@ -3,6 +3,7 @@
 import os
 import subprocess
 import glob
+import time
 
 sys_fork = subprocess.check_output(["nproc", "--all"], text=True).strip()
 
@@ -119,9 +120,19 @@ def john_init():
 
 def john_format(target_files, wordlist_target, fork):
     for target_file in target_files:
-        print(f"Processing: {target_file}")
+        print(f"\nProcessing: {target_file}")
+        start_time = time.time()
+        elapsed_time = time.time() - start_time
+        minutes = int(elapsed_time // 60)
+        seconds = int(elapsed_time % 60)
         for formats in format_types:
             command = ["john", f"--format={formats}", target_file]
+            total = len(format_types)
+            index = format_types.index(formats) + 1
+            elapsed_time = time.time() - start_time
+            minutes = int(elapsed_time // 60)
+            seconds = int(elapsed_time % 60)
+            print(f"\rTime elapsed: {minutes}:{seconds}\tProcessing format: {index}/{total}", end='', flush=True)
             if fork:
                 command.extend([ f"--fork={fork}"])
             if wordlist_target:
