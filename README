@@ -22,7 +22,7 @@ style globbing. I detest having to type out complex named directories or files, 
 simply adding globbing was a way for me to keep some of my own sanity when typing out long and complex directory/file names.
 
         TODO:
--ADD dyanimc formatting option - help for this can be found in the /usr/share/doc/john/DYNAMIC_SCRIPTING README file
+-ADD dyanimc formatting option - help for this can be found in the /usr/share/doc/john/DYNAMIC_SCRIPTING README file.
 -OPTIMIZE how the script runs against the format types, even now just running 2 hash files with only a few hashes each and
     a custom wordlist that is very small it takes forever a day to run through all the format types simply because I don't need
     all the format types every time. Potentially need to call another program first, or develop something in python to ID the
@@ -30,8 +30,9 @@ simply adding globbing was a way for me to keep some of my own sanity when typin
 -ADD more wordlists to the wordlist selection tab, this will require me to package these custom wordlists with the script, 
     for right now its assumed that the user will have the rockyou.txt wordlist already on their system in the /usr/share/wordlists
     directory.
--ADD checks to the --fork-<fork option> feature to keep the user from creating errors by using a fork their system is incapable of running
+-ADD checks to the --fork-<fork option> feature to keep the user from creating errors by using a fork their system is incapable of running.
 -ADD dynamic modification to the format list, this will ensure as John the Ripper developers continue to work on the program this script will
-    be capable of keeping the format list up to date without manual modification
+    be capable of keeping the format list up to date without manual modification.
+-MODIFY time function to keep track of individual times for each file as well as a running total time.
 
 RESERVED: instructions
