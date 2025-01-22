@@ -8,18 +8,23 @@ This script was written as means to automate the formatting process within John 
 formatting options available to the user, however, an issue with this is if the user is attempting to break a large number of hashes
 with multiple format types within the same (or multiple files) John may not be able to run without specifiying the --format-<format type>
 option. Leaving users to have to go back and manually run the program wasting valuble time and resources. This script allows the user
-to run John the Ripper without having to manually run these various formats against a single or even multiple files. The script has also
-been modified to give the user the ability to input a custom wordlist (or multiple wordlists), use the default John wordlist, or even just 
-use the industry standard rockyou.txt wordlist. However the rockyou.txt must be located within the /usr/share/wordlists directory. In 
-the future I will modify the script so that it will search the system for the rockyou.txt wordlist and if not found download it to give 
-the user more plug and play versatility. Additionally more functionality has been given the script allowing the user to change the processor
-fork of John. At this time I have not added checks to that functionality so it is up to the user to know what the maximum for is their 
+to run John the Ripper without having to manually run these various formats against a single or even multiple files. 
+
+The script has also been modified to give the user the ability to input a custom wordlist (or multiple wordlists), use the default 
+John wordlist, or even just use the industry standard rockyou.txt wordlist. However the rockyou.txt must be located within the 
+/usr/share/wordlists directory. In the future I will modify the script so that it will search the system for the rockyou.txt wordlist
+and if not found download it to give the user more plug and play versatility. 
+
+Additionally more functionality has been given the script allowing the user to change the processor fork of John. 
+At this time I have not added checks to that functionality so it is up to the user to know what the maximum for is their 
 system in capable of if they choose to use the "custom" option. Otherwise using the "high performance" option will give the script the power
 to determine maximum system capabilities. Likewise if the user choose the utilize the "low performance" option this will utilize the default
 fork value which is 1. Truth be told there isn't a signficant difference between the default and a fork of 8, in fact it without proper cooling
-I probably wouldn't recommend altering the fork value. One key aspect that I did be sure to add to this program is the ability to use *nix
-style globbing. I detest having to type out complex named directories or files, and like many I'll often mistype these complex names,
-simply adding globbing was a way for me to keep some of my own sanity when typing out long and complex directory/file names.
+I probably wouldn't recommend altering the fork value. 
+
+One key aspect that I did be sure to add to this program is the ability to use *nix style globbing. I detest having to type out complex
+named directories or files, and like many I'll often mistype these complex names, simply adding globbing was a way for me to keep some
+of my own sanity when typing out long and complex directory/file names.
 
         TODO:
 -ADD dyanimc formatting option - help for this can be found in the /usr/share/doc/john/DYNAMIC_SCRIPTING README file.
@@ -31,8 +36,8 @@ simply adding globbing was a way for me to keep some of my own sanity when typin
     for right now its assumed that the user will have the rockyou.txt wordlist already on their system in the /usr/share/wordlists
     directory.
 -ADD checks to the --fork-<fork option> feature to keep the user from creating errors by using a fork their system is incapable of running.
--ADD dynamic modification to the format list, this will ensure as John the Ripper developers continue to work on the program this script will
-    be capable of keeping the format list up to date without manual modification.
+-ADD dynamic modification to the format list, this will ensure as John the Ripper developers continue to work on the program this 
+    script will be capable of keeping the format list up to date without manual modification.
 -MODIFY time function to keep track of individual times for each file as well as a running total time.
 
 RESERVED: instructions
