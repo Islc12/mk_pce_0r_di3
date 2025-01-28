@@ -4,6 +4,26 @@ Author: Rich Smith
 Written: Dec 2024
 Contact: (richrsmith@proton.me)
 
+        Installation and setup instructions:
+git clone https://github.com/Islc12/mk_pce_0r_di3.git
+cd mk_pce_0r_di3
+chmod u+x john_automate.py
+
+        How to use:
+Usage is fairly simple for this script, just like other python scripts you must prefix the file name <john_automate.py> with ./ and you'll
+be good to run. From there you'll be presented with a series of prompts before the script begins to run. The first prompt will ask about
+the hash file(s) you wish to use, input one or one hundred, just ensure that files are separated by a space. The second prompt will ask about
+wordlists and which you'd like to run. Selecting (1) picks the default John the Ripper wordlist and can take quite a long time to run, this is
+here because John provides us that utility and I don't want to take anything away from the original developers. Choice (2) lets us run the 
+gold standard for wordlists, the rockyou word list. As noted later on this wordlist must be located in the /usr/share/wordlists directory and
+there will be future corrections for this hiccup. Choice (3) allows us to input a custom wordlist, if we select (3) then we're immediately 
+prompted for the input of that wordlist. -NOTE- users have the option to add multiple wordlists in this script, it will check them against the
+hash file(s) one by one, parsing each time through all available formats. The third and final prompt asks about forking the processor. If you
+know what this part does I doubt I'd have to explain it to you, if you don't know what it does, choose the default setting and save your
+system from potentially overheating. After this just sit back and let John the Ripper do its thing. When John finishes running any and all
+cracked hashes will be shown to standard output. As John already does, cracked hashes are stored in ~/.john/john.pot in case you need to go
+back and view them at a later time.
+
 This script was written as means to automate the formatting process within John the Ripper. John boasts an impressive number of 
 formatting options available to the user, however, an issue with this is if the user is attempting to break a large number of hashes
 with multiple format types within the same (or multiple files) John may not be able to run without specifiying the --format-<format type>
@@ -39,5 +59,3 @@ of my own sanity when typing out long and complex directory/file names.
 -ADD dynamic modification to the format list, this will ensure as John the Ripper developers continue to work on the program this 
     script will be capable of keeping the format list up to date without manual modification.
 -MODIFY time function to keep track of individual times for each file as well as a running total time.
-
-RESERVED: instructions
