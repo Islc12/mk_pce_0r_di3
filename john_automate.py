@@ -70,7 +70,7 @@ def john_init():
         # Select wordlist
         print("""Choose a wordlist:
         1. John the Ripper Default wordlist
-        2. Rockyou wordlist (/usr/share/wordlists/rockyou.txt)
+        2. Rockyou wordlist
         3. Custom wordlist(s)""")
         choice = int(input("Your choice: "))
         wordlist_target = []
@@ -78,7 +78,7 @@ def john_init():
         if choice == 1:
             wordlist_target = None  # Default John wordlist
         elif choice == 2:
-            rockyou_path = "/usr/share/wordlists/rockyou.txt"
+            rockyou_path = "rockyou.txt"
             if os.path.exists(rockyou_path):
                 wordlist_target = [rockyou_path]
             else:
