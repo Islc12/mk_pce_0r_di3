@@ -1,4 +1,4 @@
-John the Ripper formatting automation script
+### John the Ripper formatting automation script
 
 -------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -13,20 +13,22 @@ By using this repository, you agree to use it responsibly and comply with all re
 
 -------------------------------------------------------------------------------------------------------------------------------------------
 
-Author: Rich Smith 
+Author: Rich Smith
+
 Written: Dec 2024
+
 Contact: (richrsmith@proton.me)
 
 -------------------------------------------------------------------------------------------------------------------------------------------
 
-Installation and setup instructions:
+### Installation and setup instructions:
 ```
 $ git clone https://github.com/Islc12/mk_pce_0r_di3.git
 $ cd mk_pce_0r_di3
 $ chmod u+x john_automate.py
 ```
 
-Running the script:
+### Running the script:
 ```
 $ cd mk_pce_0r_di3
 $ ./john_automate.py
@@ -34,7 +36,7 @@ $ ./john_automate.py
 
 -------------------------------------------------------------------------------------------------------------------------------------------
 
-How to use:
+### How to use:
 Usage is fairly simple for this script, you'll be presented with a series of prompts before the script begins to run. The first prompt will
 ask about the hash file(s) you wish to use, input one or one hundred, just ensure that files are separated by a space. The second prompt
 will ask about wordlists and which you'd like to run. Selecting (1) picks the default John the Ripper wordlist and can take quite a long
@@ -69,12 +71,10 @@ of my own sanity when typing out long and complex directory/file names.
 
 -------------------------------------------------------------------------------------------------------------------------------------------
 
-        TODO:
+### Future Changes:
 -ADD dyanimc formatting option - help for this can be found in the /usr/share/doc/john/DYNAMIC\_SCRIPTING README file.
--OPTIMIZE how the script runs against the format types, even now just running 2 hash files with only a few hashes each and
-    a custom wordlist that is very small it takes forever a day to run through all the format types simply because I don't need
-    all the format types every time. Potentially need to call another program first, or develop something in python to ID the
-    hashes in the file and pass that along to main so it selects only the required format types.
+
 -ADD more wordlists to the wordlist selection tab, this will require me to package these custom wordlists with the script.
+
 -ADD dynamic modification to the format list, this will ensure as John the Ripper developers continue to work on the program this 
     script will be capable of keeping the format list up to date without manual modification.
