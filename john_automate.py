@@ -95,9 +95,9 @@ def john_init():
             exit(1)
 
 
-        print("""Select a fork option:
-        1. Default (lowest performance)
-        2. System (best performance)
+        print(f"""Select a fork option:
+        1. Default
+        2. System {sys_fork}
         3. Other""")
 
         selection = int(input("Your Choice: "))
@@ -118,39 +118,58 @@ def john_init():
         print(f"Error: {e}")
         exit(1)
 
-def john_format(target_files, wordlist_target, fork):
+def check_formats(target_files):
     for target_file in target_files:
-        print(f"\nProcessing: {target_file}")
-        start_time = time.time()
-        elapsed_time = time.time() - start_time
-        minutes = int(elapsed_time // 60)
-        seconds = int(elapsed_time % 60)
+        command = ["john", "--show=formats"] + target_files
+        output = subprocess.check_output(command, text=True)
+
+    matching_formats = []
+    for line in output.splitlines():
         for formats in format_types:
-            command = ["john", f"--format={formats}", target_file]
-            total = len(format_types)
-            index = format_types.index(formats) + 1
-            elapsed_time = time.time() - start_time
-            minutes = int(elapsed_time // 60)
-            seconds = int(elapsed_time % 60)
-            print(f"\rTime elapsed: {minutes}:{seconds}\tProcessing format: {index}/{total}", end='', flush=True)
-            if fork:
-                command.extend([ f"--fork={fork}"])
-            if wordlist_target:
-                for wordlist in wordlist_target:
-                    command.extend([f"--wordlist={wordlist}"])
+            if formats in line:
+                matching_formats.append(formats)
 
-            john_process = subprocess.run(command, text=True, capture_output=True)
+    # Remove duplicates (if a format appears multiple times)
+    matching_formats = list({formats for formats in matching_formats})
+    return matching_formats
 
-            if john_process.returncode != 0 and "No password hashes left" not in john_process.stdout:
-                print(f"Error using format {formats} on {target_file}: {john_process.stderr}")
+def john_format(target_files, wordlist_target, fork, matching_formats):
+    #count = 0
+    #counter = len(wordlist_target) * len(target_files) * len(matching_formats)
+    start_time = time.time()
+
+    for wordlist in wordlist_target:
+        print(f"\nProcessing...")
+        for target_file in target_files:
+            for index, matches in enumerate(matching_formats, start=1):
+                wordlist_args = [f"--wordlist={wordlist}"]
+                command = ["john", f"--format={matches}", target_file] + wordlist_args
+                elapsed_time = time.time() - start_time
+                mins = int(elapsed_time // 60)
+                secs = int(elapsed_time % 60)
+                print(f"\rTotal Time: {mins:03}:{secs:02}, Processing format: {index}/{len(matching_formats)}", end='', flush=True)
+                if fork:
+                    command.append([f"--fork={fork}"])
+                
+                john_process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+                stdout, stderr = john_process.communicate()
+
+                if "No password hashes left" in stdout:
+                    continue
+                
+                if john_process.returncode != 0 and "No password hashes left" not in stdout:
+                    print(f"Error using format {matches} on {target_file}: {stderr}")
 
 def john_show(target_files):
-    print("\nFinal cracked hashes:")
+    print("""
+\n----------------------------------------------------------------------------\n
+Final cracked hashes:\n""")
     for target_file in target_files:
         john_output = subprocess.run(["john", "--show", target_file], text=True, capture_output=True)
         print(john_output.stdout.strip())
-
+        print("\n----------------------------------------------------------------------------\n")
 if __name__ == "__main__":
     target_files, wordlist_target, fork = john_init()
-    john_format(target_files, wordlist_target, fork)
+    matching_formats = check_formats(target_files)
+    john_format(target_files, wordlist_target, fork, matching_formats)
     john_show(target_files)
