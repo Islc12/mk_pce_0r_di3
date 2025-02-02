@@ -5,9 +5,11 @@ Written: Dec 2024
 Contact: (richrsmith@proton.me)
 
         Installation and setup instructions:
+```
 git clone https://github.com/Islc12/mk_pce_0r_di3.git
 cd mk_pce_0r_di3
 chmod u+x john_automate.py
+```
 
         How to use:
 Usage is fairly simple for this script, just like other python scripts you must prefix the file name <john_automate.py> with ./ and you'll
