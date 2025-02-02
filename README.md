@@ -1,4 +1,4 @@
-                                               John the Ripper formatting automation script
+John the Ripper formatting automation script
 
 -------------------------------------------------------------------------------------------------------------------------------------------
 
