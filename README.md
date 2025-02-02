@@ -54,13 +54,13 @@ named directories or files, and like many I'll often mistype these complex names
 of my own sanity when typing out long and complex directory/file names.
 
         TODO:
--ADD dyanimc formatting option - help for this can be found in the /usr/share/doc/john/DYNAMIC\_SCRIPTING README file.
--OPTIMIZE how the script runs against the format types, even now just running 2 hash files with only a few hashes each and
+        -ADD dyanimc formatting option - help for this can be found in the /usr/share/doc/john/DYNAMIC\_SCRIPTING README file.
+        -OPTIMIZE how the script runs against the format types, even now just running 2 hash files with only a few hashes each and
     a custom wordlist that is very small it takes forever a day to run through all the format types simply because I don't need
     all the format types every time. Potentially need to call another program first, or develop something in python to ID the
     hashes in the file and pass that along to main so it selects only the required format types.
--ADD more wordlists to the wordlist selection tab, this will require me to package these custom wordlists with the script, 
+        -ADD more wordlists to the wordlist selection tab, this will require me to package these custom wordlists with the script, 
     for right now its assumed that the user will have the rockyou.txt wordlist already on their system in the /usr/share/wordlists
     directory.
--ADD dynamic modification to the format list, this will ensure as John the Ripper developers continue to work on the program this 
+        -ADD dynamic modification to the format list, this will ensure as John the Ripper developers continue to work on the program this 
     script will be capable of keeping the format list up to date without manual modification.
