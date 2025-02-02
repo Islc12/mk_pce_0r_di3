@@ -17,7 +17,7 @@ Author: Rich Smith
 
 Written: Dec 2024
 
-Contact: (richrsmith@proton.me)
+Contact: richrsmith@proton.me
 
 -------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -25,7 +25,8 @@ Contact: (richrsmith@proton.me)
 ```
 $ git clone https://github.com/Islc12/mk_pce_0r_di3.git
 $ cd mk_pce_0r_di3
-$ chmod u+x john_automate.py
+$ chmod u+x config.sh
+$ ./config.sh
 ```
 
 ### Running the script:
