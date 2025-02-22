@@ -168,6 +168,7 @@ Final cracked hashes:\n""")
         john_output = subprocess.run(["john", "--show", target_file], text=True, capture_output=True)
         print(john_output.stdout.strip())
         print("\n----------------------------------------------------------------------------\n")
+        
 if __name__ == "__main__":
     target_files, wordlist_target, fork = john_init()
     matching_formats = check_formats(target_files)
