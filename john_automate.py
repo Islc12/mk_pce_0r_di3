@@ -5,6 +5,19 @@ import subprocess
 import glob
 import time
 
+print("""
+        JJJJJJJJJJJJ  OOOOOOOOOOOO  HH        HH  NNN       NN
+             JJ      OO        OO  HH        HH  NNNN      NN
+            JJ      OO        OO  HH        HH  NN NN     NN
+           JJ      OO        OO  HH        HH  NN  NN    NN
+          JJ      OO        OO  HHHHHHHHHHHH  NN   NN   NN 
+   JJ    JJ      OO        OO  HH        HH  NN    NN  NN
+  JJ    JJ      OO        OO  HH        HH  NN     NN NN
+ JJ    JJ      OO        OO  HH        HH  NN      NNNN
+JJJJJJJJ      OOOOOOOOOOOO  HH        HH  NN       NNN
+=============================================================
+    """) 
+
 sys_fork = subprocess.check_output(["nproc", "--all"], text=True).strip()
 
 format_types = [
